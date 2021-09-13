@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<scene>
+	<integrator type="volumetricphotonmapper">
+		<float name="photonRadius" value="0.18"/>
+		<integer name="photonCount" value="5000000"/>
+	</integrator>
+	
+	<medium type="heterogeneous">
+	    <vector name="scale" value="1 1 1"/>
+		<float name="particledensity" value="0.00003"/>
+		<integer name="resolution" value="128"/>
+	</medium>
+
+	<camera type="perspective">
+		<float name="fov" value="45.8402"/>
+		<transform name="toWorld">
+			<scale value="-1,1,1"/>
+			<lookat target="-0.166029, 0.148984, -0.537402" origin="-0.61423, 0.154197, -1.43132" up="-0.000640925, -0.999985, -0.0055102"/>
+		</transform>
+
+		<integer name="height" value="576"/>
+		<integer name="width" value="768"/>
+	</camera>
+
+	<sampler type="independent">
+		<integer name="sampleCount" value="1"/>
+	</sampler>
+
+	<!--
+	<mesh type="obj">
+		<string name="filename" value="bounds.obj"/>
+
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.725 0.71 0.68"/>
+		</bsdf>
+	</mesh>
+	-->
+
+	<mesh type="obj">
+		<string name="filename" value="plane.obj"/>
+
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.2 0.2 0.3"/>
+		</bsdf>
+		<transform name="toWorld">
+		    <scale value="0.05, 1.0, 0.05"/>
+			<translate value="0.0, 0.48, 0.0"/>
+		</transform>
+	</mesh>
+	
+	
+	<mesh type="sphere">
+		<point name="center" value="0.0 -2.0 -1.0" />
+		<float name="radius" value="0.2" />
+
+		<emitter type="area">
+			<color name="radiance" value="400 400 400" />
+		</emitter>
+	</mesh>
+</scene>

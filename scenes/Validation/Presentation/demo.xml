@@ -1,0 +1,145 @@
+<scene>
+	<!-- Independent sample generator, user-selected samples per pixel -->
+	<sampler type="independent">
+		<integer name="sampleCount" value="1"/>
+	</sampler>
+
+	<!-- Use the normal integrator -->
+	<integrator type="volumetricphotonmapper">
+		<float name="photonRadius" value="15"/>
+		<integer name="photonCount" value="1000000"/>
+	</integrator>
+	
+	<medium type="heterogeneous">
+	    <vector name="scale" value="300, 300, 300"/>
+		<vector name="translate" value="-15, -60, 20"/>
+	</medium>
+
+	<camera type="perspective">
+		<transform name="toWorld">
+			<lookat target="0, 0, 0" origin="120, -5, 500" up="0, 1, 0"/>
+		</transform>
+
+		<!-- Field of view: 30 degrees -->
+		<float name="fov" value="30"/>
+
+		<!-- 768 x 768 pixels -->
+		<integer name="width" value="960"/>
+		<integer name="height" value="540"/>
+	</camera>
+	
+	<mesh type="sphere">
+		<point name="center" value="0.0 -150.0 -50.0" />
+		<float name="radius" value="40" />
+
+		<emitter type="area">
+			<color name="radiance" value="6 6 6" />
+		</emitter>
+	</mesh>
+	<mesh type="sphere">
+		<point name="center" value="0.0 140.0 -50.0" />
+		<float name="radius" value="40" />
+
+		<emitter type="area">
+			<color name="radiance" value="6 6 6" />
+		</emitter>
+	</mesh>
+	<!--
+	<mesh type="obj">
+		<string name="filename" value="meshes/walls.obj"/>
+
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.725 0.71 0.68"/>
+		</bsdf>
+		<transform name="toWorld">
+		    <scale value="300,300,300"/>
+			<translate value="0,100,0"/>
+		</transform>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/rightwall.obj"/>
+
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.725 0.71 0.68"/>
+		</bsdf>
+		<transform name="toWorld">
+		    <scale value="400,400,400"/>
+		</transform>
+	</mesh>
+	<mesh type="obj">
+		<string name="filename" value="meshes/leftwall.obj"/>
+
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.725 0.71 0.68"/>
+		</bsdf>
+		<transform name="toWorld">
+		    <scale value="400,400,400"/>
+		</transform>
+	</mesh>
+	-->
+
+	<!-- Moon -->
+	<mesh type="sphere">
+		<point name="center" value="-15,30,-100"/>
+		<float name="radius" value="56"/>
+		<bsdf type="diffuse">
+            <texture type="imagetexture_color3f" name="albedo">
+						<string name="filepath" value="D:\\Homework\\computer_graphics\\nori\\scenes\\Validation\\Presentation\\moon.jpg"/>
+            </texture>
+        </bsdf>
+		
+		<emitter type="texturearea">
+			<color name="radiance" value="2 2 2" />
+		</emitter>
+	</mesh>
+
+	<!-- Polybahn_Red body -->
+	<mesh type="obj">
+		<string name="filename" value="polybahn_body.obj"/>
+		<transform name="toWorld">
+			<scale value="1,1,1"/>
+			<translate value="10,20,0"/>
+		</transform>
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.630 0.065 0.05"/>
+		</bsdf>
+	</mesh>
+
+	<!-- Polybahn_Red body -->
+	<mesh type="obj">
+		<string name="filename" value="polybahn.obj"/>
+		<transform name="toWorld">
+			<scale value="1,1,1"/>
+			<translate value="10,20,0"/>
+		</transform>
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.630 0.065 0.05"/>
+		</bsdf>
+	</mesh>
+
+	<!-- Polybahn_White banner -->
+	<mesh type="obj">
+		<string name="filename" value="banner.obj"/>
+		<transform name="toWorld">
+			<scale value="1,1,1"/>
+			<translate value="10,20,0"/>
+		</transform>
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.725 0.71 0.68"/>
+		</bsdf>
+	</mesh>
+
+	<!-- Rail -->
+	<mesh type="obj">
+		<string name="filename" value="rail.obj"/>
+		<transform name="toWorld">
+			<scale value="1,1,1"/>
+			<translate value="-120,-50,0"/>
+		</transform>
+		<bsdf type="diffuse">
+			<color name="albedo" value="0.2 0.2 0.2"/>
+		</bsdf>
+	</mesh>
+
+
+</scene>
